@@ -1,0 +1,196 @@
+.container {
+  padding: 2rem 0;
+}
+
+.runwaySelector {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--nav-bg);
+  border-radius: 8px;
+}
+
+.runwaySelector h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-light);
+}
+
+.checkboxList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.checkboxItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.checkboxItem input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checkboxItem span {
+  user-select: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--nav-bg);
+  border-radius: 8px;
+}
+
+.timeInfo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.duration {
+  color: var(--accent-light);
+  font-weight: 500;
+}
+
+.zoomButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-light);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.emptyState {
+  padding: 3rem;
+  text-align: center;
+  color: #888;
+  font-size: 1.1rem;
+}
+
+.stripsContainer {
+  display: flex;
+  gap: 1rem;
+  min-height: 600px;
+}
+
+.runwayStrip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--nav-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 0; /* Allow flex children to shrink */
+}
+
+.runwayHeader {
+  padding: 1rem 1.5rem;
+  background-color: #333;
+  border-bottom: 2px solid var(--accent-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.runwayHeader h3 {
+  font-size: 1.3rem;
+  margin: 0;
+  color: var(--accent-light);
+}
+
+.flightCount {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.stripContent {
+  position: relative;
+  flex: 1;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.timeAxis {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  pointer-events: none;
+}
+
+.timeMarker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeLabel {
+  font-size: 0.75rem;
+  color: #666;
+  min-width: 50px;
+  text-align: right;
+}
+
+.timeLine {
+  flex: 1;
+  height: 1px;
+  background-color: #444;
+}
+
+.flightMarker {
+  position: absolute;
+  left: 70px; /* Offset for time labels */
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transform: translateY(-50%);
+}
+
+.flightLine {
+  width: 40%;
+  height: 2px;
+  background-color: var(--accent-light);
+}
+
+.flightLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--fg-light);
+  white-space: nowrap;
+  background-color: rgba(26, 26, 26, 0.9);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid var(--accent-light);
+}
