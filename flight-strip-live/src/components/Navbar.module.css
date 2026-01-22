@@ -1,0 +1,47 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(18, 18, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.nav {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: var(--fg-light);
+  text-decoration: none;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.link {
+  color: var(--fg-muted);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.link:hover {
+  color: var(--fg-light);
+  background: var(--surface-2);
+}
+
+.link:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 2px;
+}

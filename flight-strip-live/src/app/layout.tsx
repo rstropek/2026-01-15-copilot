@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import styles from "./layout.module.css";
+
+import { Navbar } from "../components/Navbar";
+import { Container } from "../components/Container";
 
 export const metadata: Metadata = {
   title: "Flight Strip Demo",
@@ -14,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <Navbar />
+        <main className={styles.main}>
+          <Container>{children}</Container>
+        </main>
       </body>
     </html>
   );
