@@ -1,5 +1,5 @@
 import { Card } from "@/components/Card";
-import { flightTable, runwayTable } from "@/db/schema";
+import { flightTable, newsTable, runwayTable } from "@/db/schema";
 import { sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/libsql";
 import { revalidatePath } from "next/cache";
@@ -33,9 +33,14 @@ async function getTableCounts() {
     .select({ count: sql<number>`count(*)` })
     .from(flightTable);
 
+  const [{ count: newsCount }] = await db
+    .select({ count: sql<number>`count(*)` })
+    .from(newsTable);
+
   return {
     runways: Number(runwayCount ?? 0),
     flights: Number(flightCount ?? 0),
+    news: Number(newsCount ?? 0),
   };
 }
 
@@ -45,6 +50,7 @@ async function populateDemoDataInSingleTransaction() {
   await db.transaction(async (tx) => {
     await tx.delete(flightTable);
     await tx.delete(runwayTable);
+    await tx.delete(newsTable);
 
     const runways = await tx
       .insert(runwayTable)
@@ -88,6 +94,55 @@ async function populateDemoDataInSingleTransaction() {
 
     flights.sort((a, b) => a.scheduledTime - b.scheduledTime);
     await tx.insert(flightTable).values(flights);
+
+    const nowSeconds = Math.floor(Date.now() / 1000);
+    await tx.insert(newsTable).values([
+      {
+        title: "New: Flight Strip Demo is live",
+        content:
+          "Welcome to the **Air Tower Flight Strip Demo**.\n\n" +
+          "- Populate sample data via the *Populate Database* page\n" +
+          "- Watch arrivals and departures appear across runways\n\n" +
+          "This article supports Markdown.",
+        validFrom: nowSeconds - 60 * 60 * 24 * 2,
+        validTo: null,
+      },
+      {
+        title: "Tip: Use the timeline to spot conflicts",
+        content:
+          "When the timeline gets busy, look for clusters of **similar scheduled times**.\n\n" +
+          "You can regenerate data at any time to get new combinations.",
+        validFrom: nowSeconds - 60 * 60 * 6,
+        validTo: null,
+      },
+      {
+        title: "Maintenance window (demo)",
+        content:
+          "We will perform database maintenance later today.\n\n" +
+          "If you see issues, try repopulating the demo data.",
+        validFrom: nowSeconds - 60 * 30,
+        validTo: nowSeconds + 60 * 60 * 6,
+      },
+      {
+        title: "Markdown example",
+        content:
+          "# Heading\n\n" +
+          "Here is a list:\n\n" +
+          "- Item 1\n" +
+          "- Item 2\n\n" +
+          "And a link: [Next.js](https://nextjs.org).",
+        validFrom: nowSeconds - 60 * 10,
+        validTo: null,
+      },
+      {
+        title: "Runway update (demo)",
+        content:
+          "Runway **09R** is preferred for departures in this demo dataset.\n\n" +
+          "_(This is sample content.)_",
+        validFrom: nowSeconds - 60,
+        validTo: null,
+      },
+    ]);
   });
 }
 
@@ -153,6 +208,10 @@ export default async function PopulatePage({
           <div className={styles.stat}>
             <p className={styles.statLabel}>Flights</p>
             <p className={styles.statValue}>{counts.flights}</p>
+          </div>
+          <div className={styles.stat}>
+            <p className={styles.statLabel}>News</p>
+            <p className={styles.statValue}>{counts.news}</p>
           </div>
         </div>
 

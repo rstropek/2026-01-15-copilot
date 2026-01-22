@@ -1,1 +1,42 @@
-/* Page-specific styles can be added here if needed */
+.sectionTitle {
+	margin-top: 18px;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.muted {
+	color: var(--fg-muted);
+}
+
+.newsList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	gap: 10px;
+}
+
+.newsItem {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 10px 12px;
+	border: 1px solid var(--border-dark);
+	border-radius: 10px;
+	background: var(--surface-2);
+}
+
+.newsLink {
+	color: var(--accent-light);
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.newsLink:hover {
+	text-decoration: underline;
+}
+
+.newsMeta {
+	font-size: 12px;
+	color: var(--fg-muted);
+}

@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import { AnySQLiteColumn, int, sqliteTable as table, text, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 // Create a "runways" table with id (auto-increment), name (text)
@@ -29,4 +30,15 @@ export const flightTable = table("flights", {
   origin: text(),      // e.g. "EDDF"
   destination: text(), // e.g. "LOWW"
   aircraftType: text("aircraft_type"), // e.g. "A320"
+});
+
+export const newsTable = table("news", {
+  id: int().primaryKey({ autoIncrement: true }),
+  title: text().notNull(),
+  content: text().notNull(),
+  validFrom: int("valid_from")
+    .notNull()
+    // SQLite unix epoch seconds (UTC)
+    .default(sql`(strftime('%s','now'))`),
+  validTo: int("valid_to"),
 });
