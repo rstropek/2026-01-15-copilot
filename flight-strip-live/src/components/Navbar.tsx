@@ -19,6 +19,9 @@ export function Navbar() {
             <Link className={styles.link} href="/about">
               About
             </Link>
+            <Link className={styles.link} href="/flight-strips">
+              Flight Strips
+            </Link>
             <Link className={styles.link} href="/populate">
               Populate
             </Link>
