@@ -59,6 +59,10 @@ npm run db:update    # Push schema changes to database (Drizzle Kit)
 
 ## Agent Guidelines
 
+### Adding Dependencies
+
+**Never manually edit** dependencies in `package.json`. Always use npm commands like `npm install <package>`. This ensures proper version resolution and lockfile updates.
+
 ### After Code Generation
 
 **CRITICAL**: After generating or modifying code, agents MUST follow this checklist:
@@ -69,11 +73,12 @@ npm run db:update    # Push schema changes to database (Drizzle Kit)
 
 ### Code Style Guidelines
 
-- **Styling**: Use CSS Modules for component-specific styles, global CSS variables for theme colors
+- **Styling**: Use CSS Modules for component-specific styles, global CSS variables for theme colors. Do not use Tailwind.
 - **Color Scheme**: Dark theme with CSS variables defined in `globals.css`:
   - `--bg-dark`: Dark gray background
   - `--fg-light`: Light foreground
   - `--accent-light`: Accent color
+- **Font**: Use a professional, sans-serif font
 - **Layout**: All content should use the `Container` component (1280px fixed width, centered)
 - **Components**: Place reusable components in `src/components/`
 - **Server Components**: Next.js 16 uses Server Components by default; use `'use client'` directive only when needed
