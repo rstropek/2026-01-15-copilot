@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Build a simple, demo-ready visualization that shows arrivals and departures as “flight strips” on a UTC timeline, grouped by runway, with runway selection and time zoom controls.
+Build a simple visualization that is ready for the demo. It shows arrivals and departures as “flight strips” on a UTC timeline, grouped by runway, with runway selection and time zoom controls.
 
 ## Scope
 
 In scope
 - Runway selection via checkboxes (assumption: max 5 runways)
-- Timeline window defaults to "now -> now + 15 minutes"
+- Timeline window defaults to "from now to now plus 15 minutes"
 - Zoom in/out controls (min window 10 minutes, max window 2 hours)
 - Side-by-side runway "strips" (one column per selected runway)
 - Flight strips rendered as vertical rectangles, use 100% of the width and height of the container
@@ -69,7 +69,7 @@ Acceptance criteria
 - Buttons:
   - Zoom in reduces window length (down to minimum 10 minutes).
   - Zoom out increases window length (up to maximum 2 hours).
-  - Zooming keeps the window anchored at windowStart (simple rule), OR keeps center anchored (allowed if clearly implemented). Pick one and follow it consistently (see Section 7.3).
+  - Zooming keeps the window anchored at windowStart (simple rule), or it keeps the center anchored (allowed if clearly implemented). Pick one and follow it consistently (see Section 7.3).
 
 ### US5: Default Behaviors
 

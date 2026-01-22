@@ -27,11 +27,11 @@ As a user, I want to be able to populate the database with sample data by clicki
 
 Acceptance criteria:
 - A button labeled "Populate Database" is shown
-- After clicking the button, a warning message is shown (in HTML, do not use a JS alert or confirm) asking the user to confirm the action
-- The user must type in "DELETE" (case-insensitive) and press a confirm button to proceed
+- After clicking the button, a warning message is shown (in HTML, do not use a JS alert or confirm). The message asks the user to confirm the action.
+- The user must type in "DELETE" (case insensitive) and press a confirm button to proceed
 - After confirmation, existing data in the database is deleted and replaced with new sample data
 - The data generation logic is the same as in the current API implementation
-- Data generation 
+- Data generation
 
 ### US4: Show success/failure message
 
@@ -39,6 +39,6 @@ As a user, I want to see a message indicating whether the population was success
 
 ## Quality Criteria
 
-- The entire fill process including deletion and insertion must be done in the scope of a single transaction
+- The entire process, including deletion and insertion, must be done in the scope of a single transaction
 - If any error occurs during the process, all changes must be rolled back and the database must remain unchanged
 - Use appropriate error handling to catch and display errors to the user (see US3)

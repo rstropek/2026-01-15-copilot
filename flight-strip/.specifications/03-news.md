@@ -22,7 +22,7 @@ Add a `news` table to the database with the following fields:
 
 ### US2: Populate News Table
 
-As a user, I want that the `news` table is populated with 5 demo entries when the populate script is run (server-side component).
+As a user, I want the `news` table to be populated with 5 demo entries when the populate script is run (server-side component).
 
 ### US3: Display Latest News on Main Page
 

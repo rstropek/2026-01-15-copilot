@@ -2,7 +2,7 @@
 
 ## Current State
 
-This application does currently not contain any UI. It is a skeleton app.
+This application does not currently contain any UI. It is a skeleton app.
 
 ## Desired State
 
@@ -21,7 +21,7 @@ Acceptance criteria:
   - Add a link to the "About" page (see US3) 
   - Add a placeholder link (to demonstrate future navigation)
 - The navigation menu only supports a single level of navigation. No dropdowns or nested menus are required.
-- Currently, no responsive design is required as the web app will always be used on desktop devices with screen resolutions of at least full HD (1920x1080).
+- Currently, no responsive design is required because the web app will always be used on desktop devices with screen resolutions of at least full HD (1920x1080).
 
 ### US2: Implement Main Page
 
@@ -30,7 +30,7 @@ As a user, I want to see a main page when I visit the root URL of the applicatio
 Acceptance criteria:
 - When the user visits the root URL ("/"), a main page is displayed
 - The main page contains a static welcome message
-- The navigation bar is visible. It stays on top when navigating to other pages (if any are added later).
+- The navigation bar is visible. It stays at the top when navigating to other pages (if any are added later).
 
 ### US3: Implement About Page
 
